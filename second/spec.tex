@@ -1,59 +1,50 @@
 %!TEX root = ../thesis.tex
-\section{要求仕様}
-本研究では，QDD（Quasi-Direct Drive）モータを搭載したロボットアームを開発し，オフィス環境での作業遂行を目指す．そのため，以下の要求仕様を策定する．これらの仕様は，設定した作業内容や既存のオフィスロボットの調査結果を基に決定したものである．特に，QDDモータを採用することで，柔軟性と安全性を高める点に注力している．
+\section{オフィスロボットのロボットアームとして要求される項目}
+前節で設定した作業（机の片づけ）から導かれる要求事項と，既存オフィスロボットのロボットアーム調査の結果を踏まえて，以下の項目を要求仕様として設定した．なお，QDD モータの使用とオープンプラットフォーム性は，本研究の前提であるため，ここではその他の項目を示す．以下の項目を仕様として，ロボットアームのメカニズム設計を行う．
+\begin{itemize}
+  \item 0.65m - 0.70mのアームリーチ
+  \item 500g以上の可搬重量
+  \item 6自由度アーム
+  \item 平行グリッパのエンドエフェクタ
+\end{itemize}
+以下では，これらの項目の詳細について述べる．
 
-\subsection{サイズと作業範囲}
-ロボットアームのサイズは，机上での片付け作業を想定し，50cm以内の範囲にある対象物を扱えるよう設計する．これを実現するため，アームのリーチは70cm程度とする．この範囲は既存のロボットアームの調査結果を基準として設定したものであり，オフィス環境における机上作業の多くをカバーできる．
-
-\subsection{自由度}
-自由度の決定は既存のオフィスロボットを参考に行う．既存のオフィスロボットの自由度を調査した結果を示す．7自由度と6自由度のロボットがほとんどである．6自由度に比べ7自由度は柔軟な操作が可能であるが，アーム重量が増加し，コストも高くなるため，6自由度を採用する．軸配置についても既存のロボットアームを参考に，肩2軸（ヨー，ピッチ），肘1軸（ロール），手首3軸（ヨー，ピッチ，ロール）とする．
-
+\subsection{アームリーチ}
+前節で設定した作業より，ロボットアームから0.5m以内の範囲にある対象物を扱えることが要求される．また，既存のオフィスロボット 10 台のアームリーチを調査した結果（図\ref{fig:reach}参照），最小は0.51m，最大は0.90mで，平均値および中央値はいずれも0.71mであった．そこで，本研究ではアームリーチを0.65mから0.70mの範囲に設定した．
 \begin{figure}[h]
   \centering
-  \includegraphics[width=10cm]{images/armDof.pdf}
-  \caption{Existing office robot arm DoF}
-  \label{fig:armDof}
+  \includegraphics[width=10cm]{images/2syou/reach.png}
+  \caption{Office robot arm reach survey results}
+  \label{fig:reach}
 \end{figure}
 
 \subsection{可搬重量}
-オフィス環境での作業では軽量な物体を扱うことが多く，設定した作業では500g以下の物体を対象とした．そのため，アームの可搬重量は500g以上の可搬重量を確保する．これにより，オフィス作業で想定される軽量物の取り扱いを十分にカバーできる．
-\subsection{エンドエフェクタ}
-既存のオフィスロボットのエンドエフェクタは，Mobile ALOHAに搭載されているロボットアーム(\ref{fig:alohaarm}に示す)のような平行グリッパが多く，様々な形状の物体を把持していることが確認できた．そのため，本研究で開発するアームにも平行グリッパを搭載する．
+机の片づけ作業では，最大500gの物体の把持が求められる．また，既存ロボットアーム調査では，可搬重量の最小は0.35kgであった（図\ref{fig:payload}参照）．よって，現時点のオフィス作業においては0.5kg以上の可搬重量を確保できれば十分であると考えられるため，本研究では0.5kg以上を可搬重量の要件とした．
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm]{images/2syou/payload.png}
+  \caption{Office robot payload survey results}
+  \label{fig:payload}
+\end{figure}
+\clearpage
 
+\subsection{自由度}
+既存のオフィスロボットのアームの自由度を調査したところ，6自由度と7自由度のロボットが大半であった（\ref{fig:armDof}参照）．6自由度の軸配置は，肩2軸（ピッチ，ロール），肘1軸（ロール），手首3軸（ロール，ピッチ，ヨー）で，7自由度ロボットは肩にロール軸が追加されている．7自由度アームは6自由度アームに比べて姿勢の自由度が増す一方で，アーム重量やコストが増加する．本研究ではコスト削減と軽量化を優先し，6自由度を採用した．
 \begin{figure}[h]
   \centering
-  \includegraphics[width=10cm]{images/alohaarm.png}
-  \caption{Mobile ALOHO Arm}
-  \label{fig:alohaarm}
+  \includegraphics[width=10cm]{images/2syou/armDof.pdf}
+  \caption{Office robot arm DoF survey results}
+  \label{fig:armDof}
 \end{figure}
+\clearpage
 
-\subsection{安全性}
-人や精密機器があるオフィス環境では、ロボットがそれらの危害を加えないことが最も重要である．接触してしまっても，ロボットアームの関節が柔軟に駆動すれば被害は最小限に抑えることができると考られるため，QDDモータを使用する．QDDモータは低減速比でバックドライバビリティが高いため，人や機器との衝撃を最小限に抑え，オフィス環境での安全性に寄与する．
-\subsection{オープンプラットフォーム}
-開発するロボットアームはオープンプラットフォームオフィスロボットの一部機能であるため，オープンプラットフォームであることが望ましい．オープンプラットフォームとして，以下の項目を満たすことが望ましい．
-\begin{itemize}
-  \item ハードウェアの設計図の公開
-  \item 部品リストの公開
-  \item 製作動画の公開
-\end{itemize}
-
-\section{要求仕様のまとめ}
-以上の項目をまとめた要求仕様を表\ref{tab:armSpecs}に示す．これらの項目を満たしたロボットアームを設計する．
-
-\begin{table}
+\subsection{エンドエフェクタの形状}
+既存のオフィスロボットで多く採用されているエンドエフェクタは，TIAGoのような平行グリッパ（図\ref{fig:tiago_hand}参照）である．TIAGoを開発しているPAL Robotics社が公開している動画\cite{TIAGo-movie:online}では，布，ジュース缶，スプレー缶，ジュースパック，板状物など多様な形状の物体を把持している様子が確認できる．本研究においても多様な形状の物体把持が求められるため，平行グリッパを採用した．
+\begin{figure}[h]
   \centering
-  \begin{tabular}{l|l}
-    \hline
-    \multicolumn{1}{c|}{\textbf{項目}} & \multicolumn{1}{c}{\textbf{仕様}} \\ \hline
-    アームリーチ                           & 約70cm                           \\
-    自由度                              & 6自由度                            \\
-    可搬重量                             & 500g以上                          \\
-    エンドエフェクタ                         & 平行グリッパ                          \\
-    安全性                              & QDDモータを使用した柔軟な関節                \\
-    オープンプラットフォーム性                    & 設計データおよび製作ノウハウの公開               \\ \hline
-  \end{tabular}
-  \caption{Required specifications for robot arm}
-  \label{tab:armSpecs}
-\end{table}
+  \includegraphics[width=8cm]{images/2syou/tiago_hand.png}
+  \caption{End effectior of TIAGo}
+  \label{fig:tiago_hand}
+\end{figure}
 \clearpage
 \newpage
