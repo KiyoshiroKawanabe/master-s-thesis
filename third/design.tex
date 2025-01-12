@@ -1,8 +1,17 @@
 %!TEX root = ../thesis.tex
-\section{基本的な性能}
-設計したロボットアームの基本的な性能を述べる．
+
+\section{ロボットアームの設計}
+要求仕様に基づき，6軸のロボットアームを設計した．設計にはAutodesk社のInventor 2023を使用した．本節では，設計したロボットアームの構造と基本的な性能について述べる．
+\subsection{構造}
+図\ref{fig:arm_design}に設計したロボットアームを示す．肩ピッチ，ヨー軸と，肘ピッチ軸に，Steadywin GIM8108-8を用いた．手首の3軸とハンドの1軸にSteadywin GIM3505-8を用いた．リンクにはアルミフレームを用いており，モータとリンクを繋ぐ部品はアルミニウム合金(A5052)で設計した．
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm]{images/design/arm_design.png}
+  \caption{The mechanical design of the robot arm}
+  \label{fig:arm_design}
+\end{figure}
 \subsection{アームサイズ}
-図\ref{fig:link_length}にロボットアームのアームリーチとリンク長を示す．人間の腕の長さの比\cite{humanarm:online}を参考に，肩から肘までは290㎜，肘から手首までは220㎜とした．アームリーチは660㎜であり，要求仕様の700㎜程度を満たしている．図\ref{fig:arm_size}にアームサイズを示す．比較のため，机とボトルを模したものを配置している．
+図\ref{fig:link_length}にロボットアームのアームリーチとリンク長を示す．人間の腕の長さの比\cite{humanarm:online}を参考に，肩から肘までは290㎜，肘から手首までは220㎜とした．アームリーチは660㎜であり，要求仕様の650㎜ - 700㎜を満たしている．図\ref{fig:arm_size}にアームサイズを示す．比較のため，机とボトルを模したものを配置している．
 
 \begin{figure}[htbp]
   \centering
@@ -43,28 +52,28 @@
 \begin{figure}[h]
   \centering
   \includegraphics[width=10cm]{images/design/migitika.png}
-  \caption{Stretched out to the right}
+  \caption{CAD model of the designed robot arm in a stretched-out posture toward the front-right direction.}
   \label{fig:move1}
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=10cm]{images/design/migioku.png}
-  \caption{Stretched out to the right}
+  \caption{CAD model of the designed robot arm in a stretched-out posture toward the back-right direction.}
   \label{fig:move2}
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=8cm]{images/design/hidaritika.png}
-  \caption{Stretched out to the left}
+  \caption{CAD model of the designed robot arm in a stretched-out posture toward the front-left direction.}
   \label{fig:move3}
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=10cm]{images/design/hidarioku.png}
-  \caption{Stretched out to the left}
+  \caption{CAD model of the designed robot arm in a stretched-out posture toward the back-left direction.}
   \label{fig:move4}
 \end{figure}
 \clearpage
