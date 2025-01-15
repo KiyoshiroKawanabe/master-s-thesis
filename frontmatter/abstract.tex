@@ -4,15 +4,14 @@
 %
 \begin{center}
   \scalebox{1.5}{オープンプラットフォームオフィスロボットの開発}\\
-  \scalebox{1.2}{-QDDモータを使用したロボットアームの設計と製作-}\\
+  \scalebox{1.2}{-QDDモータを使用したロボットアームのメカニズムの設計と製作-}\\
 \end{center}
 \vspace{1.0zh}
 %
 
-本研究では，オープンプラットフォームオフィスロボット開発の第一段階として，QDDモータを使用したロボットアームの設計と製作を行った．近年，人手不足を背景に，オフィスロボットの実用化が期待されている．様々な企業や研究室で開発が行われているが，それらのロボットは設計データを公開しておらず，オープンプラットフォームが不足している．本研究では，この課題を解決する第一歩として，QDDモータを使用したオフィスロボットのロボットアームのメカニズムを設計・製作し，その設計データを公開することを目的とする．QDDモータは，低減速比による高い応答性を備えており，適切に制御することで衝突時の衝撃を軽減できることが先行研究により確認されている．本研究では，人に被害を加えないことが極めて重要なオフィス環境において，この特性を活用する．
-
-従来のオフィスロボットの作業内容を調査し，代表的なタスクである「机の片づけ作業」を対象に，ロボットアームの要求仕様を策定した．設計にはAutodesk社のInventor2023を使用し，部品の構造解析を行いながら6自由度のロボットアームを開発した．また，部品外注サービスを活用し，短期間での部品調達と製作を可能にした．ロボットアームの設計データおよび部品リストはGitHub上で公開され，他の開発者による利用および改良が可能である．
-これにより，オフィスロボット開発のコスト削減やスピード向上を促進し，また，QDDモータの新たな応用可能性を切り拓くプラットフォームの構築に貢献する
+本研究では，オープンプラットフォームオフィスロボット開発の第一段階として，QDDモータを使用したロボットアームの設計と製作を行った．近年，人手不足を背景に，オフィスロボットの実用化が期待されている．様々な企業や研究室で開発が行われているが，それらのロボットは設計データを公開しておらず，オープンプラットフォームが不足している．本研究では，この課題を解決する第一歩として，QDDモータを使用したオフィスロボットのロボットアームのメカニズムを設計・製作し，その設計データを公開することを目的とする．QDDモータは，低減速比による高い応答性を備えており，適切に制御することで衝突時の衝撃を軽減できることが先行研究により確認されている．オフィスロボットは人に被害を加えないことが極めて重要であるため，本研究ではロボットアームにQDDモータを採用した．
+従来のロボットアーム調査を基に，最低限の機能を持つQDDモータを使用した6自由度のロボットアームを開発した．構造解析により強度を確認し，部品外注サービスを活用し，短期間での部品調達と製作を可能にした．検証では，机の片づけ作業を想定し，開発したロボットアームが要求された作業領域での動作ができることを確認した．また，安全対策として，通電時の可動範囲内への進入防止および遠隔停止の必要性を検討した．開発したロボットアームの設計データおよび部品リストはGitHub上で公開され，他の開発者による利用および改良が可能である．
+これにより，オフィスロボット開発のコスト削減やスピード向上を促進し，分野の活性化に貢献する．
 
 
 キーワード: オフィスロボット，ロボットアーム，QDDモータ，オープンプラットフォーム
@@ -22,11 +21,13 @@
 \chapter*{abstract}
 \thispagestyle{empty}
 %
-\begin{center}
-  \scalebox{1.3}{title}
-\end{center}
-\vspace{1.0zh}
+% \begin{center}
+%   \scalebox{1.3}{Development of Open Platform Office Robot}\\
+%   \scalebox{1.1}{-Design and Construction of a Robot Arm Mechanism using QDD Motor-}
+% \end{center}
+% \vspace{1.0zh}
 %
 
+This study focuses on the design and fabrication of a robotic arm using QDD motors as the first step toward developing an open-platform office robot. In recent years, the practical application of office robots has been increasingly anticipated due to labor shortages. Although various companies and research institutions have been developing office robots, most do not disclose their design data, resulting in a lack of open platforms. To address this issue, this study aims to design and fabricate the mechanism of a robotic arm for office robots using QDD motors and make the design data publicly available. QDD motors feature high responsiveness due to their low reduction ratio and have been shown in previous studies to reduce impact forces during collisions with appropriate control. Since it is critical for office robots to avoid causing harm to humans, QDD motors were selected for the robotic arm in this study. Based on an analysis of existing robotic arms, a six-degree-of-freedom robotic arm with essential functionalities was developed using QDD motors. Structural analysis was conducted to ensure sufficient strength, and outsourced manufacturing services were utilized to enable rapid procurement and fabrication of components. In the validation phase, the robotic arm was tested for a desk-cleaning task, confirming that it could operate within the required workspace. Additionally, safety measures, such as preventing entry into the arm's operational range during power-on and enabling remote emergency stops, were considered. The design data and parts list of the developed robotic arm have been published on GitHub, allowing other developers to utilize and improve the design. This contributes to reducing development costs, accelerating progress, and revitalizing the field of office robot development.
 
-keywords: 
+keywords: Office robot, robotic arm, QDD motor, open platform
